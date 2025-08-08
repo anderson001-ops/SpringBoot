@@ -1,7 +1,5 @@
 package com.sena.clase2.models;
 
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,14 +13,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name="usuarios")
-public class Usuario {
+@Table(name="Productos")
+public class Productos {
     @Id
-    @Column(name="id_usuario")
+    @column( name="id_productos")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_usuario;
-    private String nombre;
-    private String apellido;
-    private String ciudad;
-}
+    private Integer id_productos;
+    private String nombreproducto;
+    private Integer precio;
+    private String categoria;
 
+}
