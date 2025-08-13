@@ -3,6 +3,8 @@ package com.sena.clase2.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sena.clase2.Repositoryes.UsuarioRepositorie;
+import com.sena.clase2.dto.UsuarioDto;
 import com.sena.clase2.models.Usuario;
+import com.sena.clase2.services.UsuarioServices;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -21,6 +27,7 @@ public class Usuariocontroller {
 
     @Autowired
 private UsuarioRepositorie UserRepo;
+private UsuarioServices userserv;
 
     @GetMapping("/usuario")
     public String usuario(){
@@ -57,4 +64,11 @@ public String userupdate(@PathVariable String id, @RequestBody Usuario usuario )
     UserRepo.save (userupdate);
     return "ACTUALIZAO";
 }
+// arquictetura de capas
+
+@GetMapping("/userser/{id}")
+public ResponseEntity <UsuarioDto> getUsuario (@pathVariable Integer id ) {
+    return new ResponseEntity<>(userserv.getUsuario(id),HttpStatus.OK);
+}
+
 }
