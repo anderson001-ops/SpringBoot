@@ -25,9 +25,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class Usuariocontroller {
 
-    @Autowired
+@Autowired
 private UsuarioRepositorie UserRepo;
-private UsuarioServices userserv;
+
 
     @GetMapping("/usuario")
     public String usuario(){
@@ -65,10 +65,27 @@ public String userupdate(@PathVariable String id, @RequestBody Usuario usuario )
     return "ACTUALIZAO";
 }
 // arquictetura de capas
+@Autowired
+private UsuarioServices userServ;
 
-@GetMapping("/userser/{id}")
+@GetMapping("userservi/{id}")
 public ResponseEntity <UsuarioDto> getUsuario (@pathVariable Integer id ) {
-    return new ResponseEntity<>(userserv.getUsuario(id),HttpStatus.OK);
+    return new ResponseEntity<>(userServ.getUsuario(id),HttpStatus.OK);
 }
-
+//crear usuario
+@PostMapping("/usuarioo")
+public ResponseEntity<UsuarioDto> saveUsuario
+(@RequestBody UsuarioDto usuarioDto) {
+return new ResponseEntity<>(userServ.saveUsuario(usuarioDto),
+HttpStatus.CREATED);
+}
+//lista usuarios como el DTO
+@GetMapping("/listausudto")
+public ResponseEntity<List<UsuarioDto>> getAllUsuarios() {
+    return new ResponseEntity<>(userServ.getAllUsuarios(), HttpStatus.OK);
+}
+@DeleteMapping("/eliminaruser/{id}")
+public ResponseEntity<UsuarioDto> deleteUsuario(@PathVariable Integer id) {
+    return new ResponseEntity<>(userServ.deleteUsuario(id), HttpStatus.OK);
+}
 }
