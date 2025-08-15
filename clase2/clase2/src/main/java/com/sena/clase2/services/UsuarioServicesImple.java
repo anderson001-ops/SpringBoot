@@ -40,4 +40,11 @@ public UsuarioDto deleteUsuario(Integer usuarioid) {
     userRepo.delete(usuario);
     return UsuarioMapper.toUsuarioDto(usuario);
 }
+@Override
+public UsuarioDto updateUsuario(Integer usuarioid, UsuarioDto usuarioDto) {
+    Usuario usuario = userRepo.findById(usuarioid).get();
+    UsuarioMapper.updateUsuario(usuario, usuarioDto);
+    return UsuarioMapper.toUsuarioDto(userRepo.save(usuario));
+}
+
 }

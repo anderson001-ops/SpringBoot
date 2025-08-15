@@ -88,4 +88,11 @@ public ResponseEntity<List<UsuarioDto>> getAllUsuarios() {
 public ResponseEntity<UsuarioDto> deleteUsuario(@PathVariable Integer id) {
     return new ResponseEntity<>(userServ.deleteUsuario(id), HttpStatus.OK);
 }
+// actualizar usuario
+@PutMapping("/usuarioxd/{id}")
+public ResponseEntity<UsuarioDto> updateUsuario(@PathVariable Integer id,
+ @RequestBody UsuarioDto usuarioDto) {
+return new ResponseEntity<>(userServ.updateUsuario(id, usuarioDto), HttpStatus.OK);
+}
+
 }

@@ -10,5 +10,6 @@ Usuario toUsuario(UsuarioDto usuarioDto);
 UsuarioDto toUsuarioDto(Usuario usuario);
 
 List<UsuarioDto> toUsuarioDtoList(List<Usuario> usuarios);
-
+ 
+void updateUsuario(Usuario usuario, UsuarioDto usuarioDto);
 }
