@@ -17,7 +17,6 @@ import com.sena.clase2.Repositoryes.UsuarioRepositorie;
 import com.sena.clase2.dto.UsuarioDto;
 import com.sena.clase2.models.Usuario;
 import com.sena.clase2.services.UsuarioServices;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -69,7 +68,7 @@ public String userupdate(@PathVariable String id, @RequestBody Usuario usuario )
 private UsuarioServices userServ;
 
 @GetMapping("userservi/{id}")
-public ResponseEntity <UsuarioDto> getUsuario (@pathVariable Integer id ) {
+public ResponseEntity <UsuarioDto> getUsuario (@PathVariable Integer id ) {
     return new ResponseEntity<>(userServ.getUsuario(id),HttpStatus.OK);
 }
 //crear usuario

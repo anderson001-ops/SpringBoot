@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ProductoDto {
-private Integer in_pro;
+private Integer idpro;
 private String cate;
 private String nompro;
-private String preci;
+private Integer preci;
 }
