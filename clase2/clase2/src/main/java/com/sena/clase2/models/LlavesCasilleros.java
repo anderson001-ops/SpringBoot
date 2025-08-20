@@ -1,8 +1,5 @@
 package com.sena.clase2.models;
 
-
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,18 +9,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
-@Table(name="Productos")
-public class Productos {
+@Table(name = "llavescasilleros")
+public class LlavesCasilleros {
     @Id
-    @Column( name="id_productos")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_productos;
-    private String nombreproducto;
-    private Integer precio;
-    private String categoria;
-
+    private Integer id_llavescasilleros;
+    private Integer numcasillero;
 }
